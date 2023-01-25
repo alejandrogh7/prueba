@@ -143,16 +143,16 @@ const getByName = ({ pokemons, name }) => {
 };
 
 const getByHeight = ({ pokemons, height }) => {
-  return pokemons.filter((pokemon) => pokemon.height === height);
+  return pokemons.filter((pokemon) => pokemon.height === +height);
 };
 
 const getByWeight = ({ pokemons, weight }) => {
-  return pokemons.filter((pokemon) => pokemon.weight === weight);
+  return pokemons.filter((pokemon) => pokemon.weight === +weight);
 };
 
 const getByBaseExperience = ({ pokemons, base_experience }) => {
   return pokemons.filter(
-    (pokemon) => pokemon.base_experience === base_experience
+    (pokemon) => pokemon.base_experience === +base_experience
   );
 };
 
