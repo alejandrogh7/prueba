@@ -5,7 +5,7 @@ const axios = require("axios");
 const fetchToModel = async (pokemons) => {
   if (typeof pokemons.length === "number") {
     let pokemonsRaw = [];
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 1; i <= 50; i++) {
       const info = await axios.get(`${process.env.API_URL}/pokemon/${i}`);
       pokemonsRaw.push(info.data);
     }
@@ -157,10 +157,83 @@ const getByBaseExperience = ({ pokemons, base_experience }) => {
 };
 
 const getByType = ({ pokemons, type }) => {
-  console.log(type);
   return pokemons.filter((pokemon) =>
     pokemon.types.find((tp) => tp.name === type)
   );
+};
+
+const getByMove = ({ pokemons, move }) => {
+  pokemons.filter((pokemon) =>
+    pokemon.moves.find((mv) => {
+      console.log(mv);
+    })
+  );
+  return pokemons.filter((pokemon) =>
+    pokemon.moves.find((mv) =>
+      mv.move.name.toLowerCase().includes(move.toLowerCase())
+    )
+  );
+};
+
+const sortPokemons = ({ pokemons, sort }) => {
+  if (sort.toUpperCase() === "AZ") {
+    pokemons = pokemons.sort((a, b) => {
+      if (a.name > b.name) return 1;
+      if (a.name < b.name) return -1;
+      return 0;
+    });
+  }
+  if (sort.toUpperCase() === "ZA") {
+    pokemons = pokemons.sort((a, b) => {
+      if (a.name < b.name) return 1;
+      if (a.name > b.name) return -1;
+      return 0;
+    });
+  }
+  if (sort.toUpperCase() === "LOWHEIGHT") {
+    pokemons = pokemons.sort((a, b) => {
+      if (a.height > b.height) return 1;
+      if (a.height < b.height) return -1;
+      return 0;
+    });
+  }
+  if (sort.toUpperCase() === "HEIGHTLOW") {
+    pokemons = pokemons.sort((a, b) => {
+      if (a.height < b.height) return 1;
+      if (a.height > b.height) return -1;
+      return 0;
+    });
+  }
+  if (sort.toUpperCase() === "LOWWEIGHT") {
+    pokemons = pokemons.sort((a, b) => {
+      if (a.weight > b.weight) return 1;
+      if (a.weight < b.weight) return -1;
+      return 0;
+    });
+  }
+  if (sort.toUpperCase() === "WEIGHTLOW") {
+    pokemons = pokemons.sort((a, b) => {
+      if (a.weight < b.weight) return 1;
+      if (a.weight > b.weight) return -1;
+      return 0;
+    });
+  }
+
+  if (sort.toUpperCase() === "LOWEXPERIENCE") {
+    pokemons = pokemons.sort((a, b) => {
+      if (a.base_experience > b.base_experience) return 1;
+      if (a.base_experience < b.base_experience) return -1;
+      return 0;
+    });
+  }
+  if (sort.toUpperCase() === "EXPERIENCELOW") {
+    pokemons = pokemons.sort((a, b) => {
+      if (a.base_experience < b.base_experience) return 1;
+      if (a.base_experience > b.base_experience) return -1;
+      return 0;
+    });
+  }
+  return pokemons;
 };
 
 module.exports = {
@@ -170,4 +243,6 @@ module.exports = {
   getByWeight,
   getByBaseExperience,
   getByType,
+  getByMove,
+  sortPokemons,
 };

@@ -11,6 +11,8 @@ const {
   getByWeight,
   getByBaseExperience,
   getByType,
+  getByMove,
+  sortPokemons,
 } = require("../lib/pokemon.helper");
 
 const getPokemonDetails = async (req, res) => {
@@ -44,6 +46,8 @@ const getPokemons = async (req, res) => {
     const { weight } = req.query;
     const { type } = req.query;
     const { base_experience } = req.query;
+    const { move } = req.query;
+    const { sort } = req.query;
 
     let pokemons = await Pokemon.find();
 
@@ -57,6 +61,8 @@ const getPokemons = async (req, res) => {
     if (type) pokemons = getByType({ pokemons, type });
     if (base_experience)
       pokemons = getByBaseExperience({ pokemons, base_experience });
+    if (move) pokemons = getByMove({ pokemons, move });
+    if (sort) pokemons = sortPokemons({ pokemons, sort });
 
     return res.status(200).json({ data: pokemons });
   } catch (err) {
