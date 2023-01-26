@@ -1,0 +1,7 @@
+.pokemons_container {
+  display: flex;
+  justify-content: center;
+  align-self: flex-start;
+  height: 100%;
+  width: 40%;
+}

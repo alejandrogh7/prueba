@@ -10,7 +10,7 @@ export const fetchPokemons = async () => {
       },
     }
   );
-  return { data: response.data, status: response.status };
+  return { data: response.data.data, status: response.status };
 };
 
 export const fetchPokemon = async (id: string) => {
@@ -23,12 +23,12 @@ export const fetchPokemon = async (id: string) => {
       },
     }
   );
-  return { data: response.data, status: response.status };
+  return { data: response.data.data, status: response.status };
 };
 
 //~ FILTERS ~ SORTS ~
 //~~ SORTS ~~
-export const fetchPokemonSortName = async (name: "ZA" | "AZ") => {
+export const fetchPokemonSortName = async (name: string) => {
   const response = await axios.get(
     `${process.env.REACT_APP_API_BASE_URL}/pokemon?sort=${name}`,
     {
@@ -38,12 +38,10 @@ export const fetchPokemonSortName = async (name: "ZA" | "AZ") => {
       },
     }
   );
-  return { data: response.data, status: response.status };
+  return { data: response.data.data, status: response.status };
 };
 
-export const fetchPokemonSortHeight = async (
-  height: "LOWHEIGHT" | "HEIGHTLOW"
-) => {
+export const fetchPokemonSortHeight = async (height: string) => {
   const response = await axios.get(
     `${process.env.REACT_APP_API_BASE_URL}/pokemon?sort=${height}`,
     {
@@ -53,12 +51,10 @@ export const fetchPokemonSortHeight = async (
       },
     }
   );
-  return { data: response.data, status: response.status };
+  return { data: response.data.data, status: response.status };
 };
 
-export const fetchPokemonSortWeight = async (
-  weight: "LOWWEIGHT" | "WEIGHTLOW"
-) => {
+export const fetchPokemonSortWeight = async (weight: string) => {
   const response = await axios.get(
     `${process.env.REACT_APP_API_BASE_URL}/pokemon?sort=${weight}`,
     {
@@ -68,12 +64,10 @@ export const fetchPokemonSortWeight = async (
       },
     }
   );
-  return { data: response.data, status: response.status };
+  return { data: response.data.data, status: response.status };
 };
 
-export const fetchPokemonSortExperience = async (
-  experience: "LOWEXPERIENCE" | "EXPERIENCELOW"
-) => {
+export const fetchPokemonSortExperience = async (experience: string) => {
   const response = await axios.get(
     `${process.env.REACT_APP_API_BASE_URL}/pokemon?sort=${experience}`,
     {
@@ -83,7 +77,7 @@ export const fetchPokemonSortExperience = async (
       },
     }
   );
-  return { data: response.data, status: response.status };
+  return { data: response.data.data, status: response.status };
 };
 
 //~~ FILTERS ~~
@@ -97,7 +91,7 @@ export const fetchPokemonType = async (type: string) => {
       },
     }
   );
-  return { data: response.data, status: response.status };
+  return { data: response.data.data, status: response.status };
 };
 
 export const fetchPokemonHeight = async (height: string) => {
@@ -110,7 +104,7 @@ export const fetchPokemonHeight = async (height: string) => {
       },
     }
   );
-  return { data: response.data, status: response.status };
+  return { data: response.data.data, status: response.status };
 };
 
 export const fetchPokemonName = async (name: string) => {
@@ -123,7 +117,7 @@ export const fetchPokemonName = async (name: string) => {
       },
     }
   );
-  return { data: response.data, status: response.status };
+  return { data: response.data.data, status: response.status };
 };
 
 export const fetchPokemonWeight = async (weight: string) => {
@@ -136,7 +130,7 @@ export const fetchPokemonWeight = async (weight: string) => {
       },
     }
   );
-  return { data: response.data, status: response.status };
+  return { data: response.data.data, status: response.status };
 };
 
 export const fetchPokemonExperience = async (experience: string) => {
@@ -149,7 +143,7 @@ export const fetchPokemonExperience = async (experience: string) => {
       },
     }
   );
-  return { data: response.data, status: response.status };
+  return { data: response.data.data, status: response.status };
 };
 
 export const fetchPokemonMove = async (move: string) => {
@@ -162,5 +156,5 @@ export const fetchPokemonMove = async (move: string) => {
       },
     }
   );
-  return { data: response.data, status: response.status };
+  return { data: response.data.data, status: response.status };
 };

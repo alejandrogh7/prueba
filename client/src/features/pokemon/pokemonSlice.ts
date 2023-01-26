@@ -93,7 +93,7 @@ export const pokemonExperienceAsync = createAsyncThunk(
 
 export const pokemonSortNameAsync = createAsyncThunk(
   "pokemon/sortName",
-  async (name: "AZ" | "ZA") => {
+  async (name: string) => {
     const response = await fetchPokemonSortName(name);
     return response;
   }
@@ -101,7 +101,7 @@ export const pokemonSortNameAsync = createAsyncThunk(
 
 export const pokemonSortHeightAsync = createAsyncThunk(
   "pokemon/sortHeight",
-  async (height: "LOWHEIGHT" | "HEIGHTLOW") => {
+  async (height: string) => {
     const response = await fetchPokemonSortHeight(height);
     return response;
   }
@@ -109,7 +109,7 @@ export const pokemonSortHeightAsync = createAsyncThunk(
 
 export const pokemonSortWeightAsync = createAsyncThunk(
   "pokemon/sortWeight",
-  async (weight: "LOWWEIGHT" | "WEIGHTLOW") => {
+  async (weight: string) => {
     const response = await fetchPokemonSortWeight(weight);
     return response;
   }
@@ -117,7 +117,7 @@ export const pokemonSortWeightAsync = createAsyncThunk(
 
 export const pokemonSortExperienceAsync = createAsyncThunk(
   "pokemon/sortExperience",
-  async (experience: "LOWEXPERIENCE" | "EXPERIENCELOW") => {
+  async (experience: string) => {
     const response = await fetchPokemonSortExperience(experience);
     return response;
   }
