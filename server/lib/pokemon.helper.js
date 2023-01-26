@@ -163,11 +163,6 @@ const getByType = ({ pokemons, type }) => {
 };
 
 const getByMove = ({ pokemons, move }) => {
-  pokemons.filter((pokemon) =>
-    pokemon.moves.find((mv) => {
-      console.log(mv);
-    })
-  );
   return pokemons.filter((pokemon) =>
     pokemon.moves.find((mv) =>
       mv.move.name.toLowerCase().includes(move.toLowerCase())
