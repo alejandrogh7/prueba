@@ -4,27 +4,8 @@ const Schema = mongoose.Schema;
 
 const pokemonSchema = new Schema(
   {
-    abilities: {
-      type: [
-        {
-          ability: {
-            name: "String",
-          },
-        },
-      ],
-    },
     base_experience: {
       type: "Number",
-    },
-    game_indices: {
-      type: [
-        {
-          game_index: "Number",
-          version: {
-            name: "String",
-          },
-        },
-      ],
     },
     height: {
       type: "Number",
@@ -50,9 +31,6 @@ const pokemonSchema = new Schema(
     name: {
       type: "String",
     },
-    order: {
-      type: "Number",
-    },
     sprites: {
       other: {
         dream_world: {
@@ -61,17 +39,6 @@ const pokemonSchema = new Schema(
           },
         },
       },
-    },
-    stats: {
-      type: [
-        {
-          base_stat: "Number",
-          effort: "Number",
-          stat: {
-            name: "String",
-          },
-        },
-      ],
     },
     types: {
       type: [
