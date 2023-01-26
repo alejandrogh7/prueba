@@ -4,4 +4,16 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-around;
+  position: relative;
+}
+
+@media only screen and (max-width: 1024px) {
+  .home_container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+  }
 }

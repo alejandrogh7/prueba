@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAppSelector, useAppDispatch } from "../app/hooks";
 import PokemonCard from "../components/PokemonCard";
 import {
@@ -9,7 +9,11 @@ import {
 import { PokemonInterface } from "../features/pokemon/pokemon.interface";
 import style from "../styles/Pokemons.module.css";
 
-const Pokemons = () => {
+interface PokemonsProps {
+  setDropDetails: (b: boolean) => void;
+}
+
+const Pokemons: React.FC<PokemonsProps> = ({ setDropDetails }) => {
   const pokemons = useAppSelector(selectPokemons);
   const dispatch = useAppDispatch();
 
@@ -45,6 +49,14 @@ const Pokemons = () => {
     }, 1000);
   }, [currentPokemonID]);
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    dispatch(clearPokemons());
+    setTimeout(() => {
+      dispatch(pokemonsAsync());
+    }, 1000);
+  };
+
   return (
     <section className={style.pokemons_container}>
       <PokemonCard
@@ -52,7 +64,20 @@ const Pokemons = () => {
         pokemonsLength={pokemonsLength}
         currentPokemonID={currentPokemonID}
         setCurrentPokemonID={setCurrentPokemonID}
+        setDropDetails={setDropDetails}
       />
+      <form
+        className={style.reset_pokemons_container}
+        onSubmit={(e) => handleSubmit(e)}
+      >
+        <div className={style.submit_container}>
+          <input
+            type="submit"
+            value="Get all pokemons"
+            className={style.submit}
+          />
+        </div>
+      </form>
     </section>
   );
 };

@@ -10,5 +10,5 @@ export const fetchTypes = async () => {
       },
     }
   );
-  return { data: response.data, status: response.status };
+  return { data: response.data.data, status: response.status };
 };

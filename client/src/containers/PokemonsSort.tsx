@@ -66,6 +66,7 @@ const PokemonsSort = () => {
       }, 1000);
     }
   };
+  
   return (
     <form
       className={style.pokemons_sort_container}

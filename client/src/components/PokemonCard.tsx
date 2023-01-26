@@ -9,6 +9,7 @@ interface PokemonCardProps {
   pokemonsLength: number;
   currentPokemonID: number;
   setCurrentPokemonID: (id: number) => void;
+  setDropDetails: (b: boolean) => void;
 }
 
 const PokemonCard: React.FC<PokemonCardProps> = ({
@@ -16,6 +17,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
   pokemonsLength,
   currentPokemonID,
   setCurrentPokemonID,
+  setDropDetails,
 }) => {
   const prevHandler = () => {
     const prev = currentPokemonID - 1;
@@ -32,8 +34,6 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
   if (!currentPokemon) {
     return (
       <div className={style.no_pokemon_card_container}>
-        <span className={style.no_pokemon_name}></span>
-        <img className={style.no_pokemon_image} />
         <div className={style.no_pokemons_length_container}>
           <FontAwesomeIcon icon={faCaretLeft} className={style.prev_pokemon} />
           <p className={style.no_pokemons_length}>
@@ -41,17 +41,16 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
           </p>
           <FontAwesomeIcon icon={faCaretRight} className={style.next_pokemon} />
         </div>
+        <img
+          className={style.no_pokemon_image}
+          onClick={() => setDropDetails(true)}
+        />
+        <span className={style.no_pokemon_name}>Fetching...</span>
       </div>
     );
   } else
     return (
       <div className={style.pokemon_card_container}>
-        <span className={style.pokemon_name}>{currentPokemon.name}</span>
-        <img
-          src={currentPokemon.sprites.other.dream_world.front_default}
-          alt={`${currentPokemon.name} image`}
-          className={style.pokemon_image}
-        />
         <div className={style.pokemons_length_container}>
           <FontAwesomeIcon
             icon={faCaretLeft}
@@ -67,6 +66,13 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
             onClick={() => nextHandler()}
           />
         </div>
+        <img
+          src={currentPokemon.sprites.other.dream_world.front_default}
+          alt={`${currentPokemon.name} image`}
+          className={style.pokemon_image}
+          onClick={() => setDropDetails(true)}
+        />
+        <span className={style.pokemon_name}>{currentPokemon.name}</span>
       </div>
     );
 };

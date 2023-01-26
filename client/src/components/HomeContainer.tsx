@@ -1,12 +1,18 @@
+import { useState } from "react";
+import PokemonDetails from "../containers/PokemonDetails";
 import Pokemons from "../containers/Pokemons";
-import style from "../styles/HomeContainer.module.css";
 import FilterSort from "./FilterSort";
+import style from "../styles/HomeContainer.module.css";
 
 const HomeContainer = () => {
+  const [dropDetails, setDropDetails] = useState(false);
+
+  console.log(dropDetails);
   return (
     <section className={style.home_container}>
-      <Pokemons />
+      <Pokemons setDropDetails={setDropDetails} />
       <FilterSort />
+      {dropDetails ? <PokemonDetails /> : null}
     </section>
   );
 };

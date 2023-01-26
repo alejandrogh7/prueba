@@ -1,5 +1,5 @@
 import { useState } from "react";
-import PokemonsFilter from "../containers/PokemonsFilters";
+import PokemonsFilters from "../containers/PokemonsFilters";
 import PokemonsSort from "../containers/PokemonsSort";
 import style from "../styles/FilterSort.module.css";
 
@@ -12,7 +12,7 @@ const FilterSort = () => {
         <span onClick={() => setFilterSort(0)}>Filter</span>
         <span onClick={() => setFilterSort(1)}>Sort</span>
       </div>
-      {!filterSort ? <PokemonsFilter /> : <PokemonsSort />}
+      {!filterSort ? <PokemonsFilters /> : <PokemonsSort />}
     </section>
   );
 };
