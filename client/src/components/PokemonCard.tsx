@@ -1,8 +1,8 @@
 import React from "react";
 import { PokemonInterface } from "../features/pokemon/pokemon.interface";
-import style from "../styles/PokemonCard.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
+import style from "../styles/PokemonCard.module.css";
 
 interface PokemonCardProps {
   currentPokemon: PokemonInterface | null;

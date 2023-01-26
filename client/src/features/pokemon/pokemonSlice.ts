@@ -37,7 +37,7 @@ export const pokemonsAsync = createAsyncThunk(
 
 export const pokemonAsync = createAsyncThunk(
   "pokemon/fetchPokemon",
-  async (id: string) => {
+  async (id: number) => {
     const response = await fetchPokemon(id);
     return response;
   }

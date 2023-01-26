@@ -13,7 +13,7 @@ export const fetchPokemons = async () => {
   return { data: response.data.data, status: response.status };
 };
 
-export const fetchPokemon = async (id: string) => {
+export const fetchPokemon = async (id: number) => {
   const response = await axios.get(
     `${process.env.REACT_APP_API_BASE_URL}/pokemon/${id}`,
     {

@@ -11,14 +11,18 @@ import style from "../styles/Pokemons.module.css";
 
 interface PokemonsProps {
   setDropDetails: (b: boolean) => void;
+  setCurrentPokemonAPIID: (n: number | null) => void;
 }
 
-const Pokemons: React.FC<PokemonsProps> = ({ setDropDetails }) => {
+const Pokemons: React.FC<PokemonsProps> = ({
+  setDropDetails,
+  setCurrentPokemonAPIID,
+}) => {
   const pokemons = useAppSelector(selectPokemons);
   const dispatch = useAppDispatch();
-
-  const pokemonsLength: number = pokemons.data?.length ?? 0;
   const [currentPokemonID, setCurrentPokemonID] = useState<number>(0);
+  const pokemonsLength: number = pokemons.data?.length ?? 0;
+
   const [currentPokemon, setCurrentPokemon] = useState<PokemonInterface | null>(
     null
   );
@@ -31,6 +35,7 @@ const Pokemons: React.FC<PokemonsProps> = ({ setDropDetails }) => {
   useEffect(() => {
     if (pokemons.data?.length) {
       setCurrentPokemon(pokemons.data[currentPokemonID]);
+      setCurrentPokemonAPIID(currentPokemon ? currentPokemon.api_id : null);
     } else if (!pokemons.data) {
       setCurrentPokemon(null);
       setCurrentPokemonID(0);

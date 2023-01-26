@@ -1,14 +1,3 @@
-interface Ability {
-  name: string;
-}
-
-interface GameIndices {
-  game_index: number;
-  version: {
-    name: string;
-  };
-}
-
 interface Moves {
   move: { name: string };
   version_group_details: {
@@ -27,30 +16,18 @@ interface Sprites {
   };
 }
 
-interface Stats {
-  base_stat: number;
-  effort: number;
-  stat: {
-    name: string;
-  };
-}
-
 interface Types {
   name: string;
 }
 
 export interface PokemonInterface {
   _id: string;
-  abilities: Ability[];
   base_experience: number;
-  game_indices: GameIndices[];
   height: number;
   weight: number;
   api_id: number;
   moves: Moves[];
   name: string;
-  order: number;
   sprites: Sprites;
-  stats: Stats[];
   types: Types[];
 }

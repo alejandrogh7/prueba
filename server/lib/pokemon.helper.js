@@ -5,29 +5,13 @@ const axios = require("axios");
 const fetchToModel = async (pokemons) => {
   if (typeof pokemons.length === "number") {
     let pokemonsRaw = [];
-    for (let i = 1; i <= 50; i++) {
+    for (let i = 1; i <= 80; i++) {
       const info = await axios.get(`${process.env.API_URL}/pokemon/${i}`);
       pokemonsRaw.push(info.data);
     }
     const pokemonsModel = await pokemonsRaw.map((pokemon) => {
-      console.log / pokemon;
       return {
-        abilities: pokemon.abilities.map((ab) => {
-          return {
-            ability: {
-              name: ab.ability.name,
-            },
-          };
-        }),
         base_experience: pokemon.base_experience,
-        game_indices: pokemon.game_indices.map((game) => {
-          return {
-            game_index: game.game_index,
-            version: {
-              name: game.version.name,
-            },
-          };
-        }),
         height: pokemon.height,
         api_id: pokemon.id,
         moves: pokemon.moves.map((move) => {
@@ -46,7 +30,6 @@ const fetchToModel = async (pokemons) => {
           };
         }),
         name: pokemon.name,
-        order: pokemon.order,
         sprites: {
           other: {
             dream_world: {
@@ -54,15 +37,6 @@ const fetchToModel = async (pokemons) => {
             },
           },
         },
-        stats: pokemon.stats.map((stat) => {
-          return {
-            base_stat: stat.base_stat,
-            effort: stat.effort,
-            stat: {
-              name: stat.stat.name,
-            },
-          };
-        }),
         types: pokemon.types.map((tp) => {
           return {
             name: tp.type.name,

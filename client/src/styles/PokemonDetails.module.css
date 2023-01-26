@@ -1,3 +1,217 @@
+.no_pokemon_image {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  background-color: #d1d5db;
+  border: 1px solid #d1d5db;
+}
+
+.no_pokemon_name {
+  width: 300px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #d1d5db;
+  border: 1px solid #d1d5db;
+  margin: 10px;
+}
+
+.no_pokemon_det_item {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.no_pokemon_det_item span {
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #d1d5db;
+  border: 1px solid #d1d5db;
+  color: whitesmoke;
+  padding: 0 10px;
+}
+
+.no_pokemon_complex_det {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.no_pokemon_complex_title {
+  height: 30px;
+  width: 100px;
+  border-radius: 10px;
+  padding: 0 20px;
+  margin: 30px;
+  background-color: #d1d5db;
+  border: 1px solid #d1d5db;
+}
+
+.pokemon_det_main_container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.pokemon_det_container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 30%;
+  height: 100%;
+}
+
+.go_home_cont {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.go_home {
+  width: 40px;
+  height: 40px;
+  font-size: 40px;
+  color: rgb(27, 27, 27);
+  cursor: pointer;
+  padding: 10px;
+}
+
+.pokemon_det {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.pokemon_image {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+}
+
+.pokemon_name {
+  width: 300px;
+  height: 40px;
+  border-radius: 10px;
+  color: rgb(27, 27, 27);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.pokemon_main_det {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.pokemon_det_item {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.pokemon_det_item span {
+  height: 40px;
+  border-radius: 10px;
+  background-color: rgb(27, 27, 27);
+  border: 1px solid rgb(37, 37, 37);
+  color: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 10px;
+}
+
+.pokemon_det_item p {
+  border-radius: 10px;
+  color: rgb(27, 27, 27);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.pokemon_complex_det {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.pokemon_complex_title {
+  border-radius: 10px;
+  color: rgb(27, 27, 27);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 28px;
+  padding: 0 20px;
+}
+
+.pokemon_complex_items {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  padding: 0 0 0 40px;
+}
+
+.type {
+  text-transform: capitalize;
+  font-size: 20px;
+  font-weight: 500;
+  color: whitesmoke;
+  background-color: rgb(57, 57, 57);
+  width: 100px;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 10px;
+}
+
+.move {
+  text-transform: capitalize;
+  font-size: 15px;
+  font-weight: 500;
+  color: rgb(27, 27, 27);
+}
+
 @media only screen and (max-width: 1024px) {
   .pokemon_det_container {
     position: fixed;
@@ -6,5 +220,25 @@
     right: 0;
     bottom: 0;
     background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .pokemon_complex_items {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    padding: 0 0 0 40px;
+  }
+
+  .move {
+    text-transform: capitalize;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(27, 27, 27);
   }
 }

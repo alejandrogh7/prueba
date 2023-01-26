@@ -6,13 +6,24 @@ import style from "../styles/HomeContainer.module.css";
 
 const HomeContainer = () => {
   const [dropDetails, setDropDetails] = useState(false);
+  const [currentPokemonAPIID, setCurrentPokemonAPIID] = useState<number | null>(
+    null
+  );
 
-  console.log(dropDetails);
   return (
     <section className={style.home_container}>
-      <Pokemons setDropDetails={setDropDetails} />
+      <Pokemons
+        setDropDetails={setDropDetails}
+        setCurrentPokemonAPIID={setCurrentPokemonAPIID}
+      />
       <FilterSort />
-      {dropDetails ? <PokemonDetails /> : null}
+      {dropDetails ? (
+        <PokemonDetails
+          currentPokemonAPIID={currentPokemonAPIID}
+          setDropDetails={setDropDetails}
+          setCurrentPokemonAPIID={setCurrentPokemonAPIID}
+        />
+      ) : null}
     </section>
   );
 };

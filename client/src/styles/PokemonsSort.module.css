@@ -53,7 +53,7 @@
   height: 30px;
   border-radius: 10px;
   background-color: rgb(27, 27, 27);
-  border: 1px solid rgb(37, 37, 37);
+  border: 1px solid whitesmoke;
   color: whitesmoke;
   display: flex;
   flex-direction: row;
