@@ -5,7 +5,6 @@ const morgan = require("morgan");
 const cors = require("cors");
 const mongoose = require("mongoose");
 //OPTIONS ~ MIDDLEWARES
-const corsOptions = require("./config/cors.config");
 const notFoundRoute = require("./middlewares/NotFound");
 const errorHandler = require("./middlewares/errorHandler");
 //ROUTES ~~ DB
