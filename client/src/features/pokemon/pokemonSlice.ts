@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { RootState, AppThunk } from "../../app/store";
+import { RootState } from "../../app/store";
 import {
   fetchPokemons,
   fetchPokemon,
@@ -125,7 +125,7 @@ export const pokemonSortExperienceAsync = createAsyncThunk(
 
 //~ REDUCER ~
 export const pokemonSlice = createSlice({
-  name: "pokemon",
+  name: "pokemons",
   initialState,
   reducers: {
     clearPokemons: (state) => {
@@ -141,9 +141,11 @@ export const pokemonSlice = createSlice({
     builder
       .addCase(pokemonsAsync.pending, (state) => {
         state.pokemons.data = null;
+        state.pokemons.status = 0;
       })
       .addCase(pokemonsAsync.rejected, (state) => {
         state.pokemons.data = null;
+        state.pokemons.status = 0;
       })
       .addCase(pokemonsAsync.fulfilled, (state, action) => {
         state.pokemons.data = action.payload.data;
@@ -153,9 +155,11 @@ export const pokemonSlice = createSlice({
     builder
       .addCase(pokemonAsync.pending, (state) => {
         state.pokemon.data = null;
+        state.pokemon.status = 0;
       })
       .addCase(pokemonAsync.rejected, (state) => {
         state.pokemon.data = null;
+        state.pokemon.status = 0;
       })
       .addCase(pokemonAsync.fulfilled, (state, action) => {
         state.pokemon.data = action.payload.data;
@@ -165,9 +169,11 @@ export const pokemonSlice = createSlice({
     builder
       .addCase(pokemonTypeAsync.pending, (state) => {
         state.pokemons.data = null;
+        state.pokemons.status = 0;
       })
       .addCase(pokemonTypeAsync.rejected, (state) => {
         state.pokemons.data = null;
+        state.pokemons.status = 0;
       })
       .addCase(pokemonTypeAsync.fulfilled, (state, action) => {
         state.pokemons.data = action.payload.data;
@@ -177,9 +183,11 @@ export const pokemonSlice = createSlice({
     builder
       .addCase(pokemonNameAsync.pending, (state) => {
         state.pokemons.data = null;
+        state.pokemons.status = 0;
       })
       .addCase(pokemonNameAsync.rejected, (state) => {
         state.pokemons.data = null;
+        state.pokemons.status = 0;
       })
       .addCase(pokemonNameAsync.fulfilled, (state, action) => {
         state.pokemons.data = action.payload.data;
@@ -189,9 +197,11 @@ export const pokemonSlice = createSlice({
     builder
       .addCase(pokemonHeightAsync.pending, (state) => {
         state.pokemons.data = null;
+        state.pokemons.status = 0;
       })
       .addCase(pokemonHeightAsync.rejected, (state) => {
         state.pokemons.data = null;
+        state.pokemons.status = 0;
       })
       .addCase(pokemonHeightAsync.fulfilled, (state, action) => {
         state.pokemons.data = action.payload.data;
@@ -201,9 +211,11 @@ export const pokemonSlice = createSlice({
     builder
       .addCase(pokemonWeightAsync.pending, (state) => {
         state.pokemons.data = null;
+        state.pokemons.status = 0;
       })
       .addCase(pokemonWeightAsync.rejected, (state) => {
         state.pokemons.data = null;
+        state.pokemons.status = 0;
       })
       .addCase(pokemonWeightAsync.fulfilled, (state, action) => {
         state.pokemons.data = action.payload.data;
@@ -213,9 +225,11 @@ export const pokemonSlice = createSlice({
     builder
       .addCase(pokemonMoveAsync.pending, (state) => {
         state.pokemons.data = null;
+        state.pokemons.status = 0;
       })
       .addCase(pokemonMoveAsync.rejected, (state) => {
         state.pokemons.data = null;
+        state.pokemons.status = 0;
       })
       .addCase(pokemonMoveAsync.fulfilled, (state, action) => {
         state.pokemons.data = action.payload.data;
@@ -225,9 +239,11 @@ export const pokemonSlice = createSlice({
     builder
       .addCase(pokemonExperienceAsync.pending, (state) => {
         state.pokemons.data = null;
+        state.pokemons.status = 0;
       })
       .addCase(pokemonExperienceAsync.rejected, (state) => {
         state.pokemons.data = null;
+        state.pokemons.status = 0;
       })
       .addCase(pokemonExperienceAsync.fulfilled, (state, action) => {
         state.pokemons.data = action.payload.data;
@@ -237,9 +253,11 @@ export const pokemonSlice = createSlice({
     builder
       .addCase(pokemonSortNameAsync.pending, (state) => {
         state.pokemons.data = null;
+        state.pokemons.status = 0;
       })
       .addCase(pokemonSortNameAsync.rejected, (state) => {
         state.pokemons.data = null;
+        state.pokemons.status = 0;
       })
       .addCase(pokemonSortNameAsync.fulfilled, (state, action) => {
         state.pokemons.data = action.payload.data;
@@ -249,9 +267,11 @@ export const pokemonSlice = createSlice({
     builder
       .addCase(pokemonSortHeightAsync.pending, (state) => {
         state.pokemons.data = null;
+        state.pokemons.status = 0;
       })
       .addCase(pokemonSortHeightAsync.rejected, (state) => {
         state.pokemons.data = null;
+        state.pokemons.status = 0;
       })
       .addCase(pokemonSortHeightAsync.fulfilled, (state, action) => {
         state.pokemons.data = action.payload.data;
@@ -261,9 +281,11 @@ export const pokemonSlice = createSlice({
     builder
       .addCase(pokemonSortWeightAsync.pending, (state) => {
         state.pokemons.data = null;
+        state.pokemons.status = 0;
       })
       .addCase(pokemonSortWeightAsync.rejected, (state) => {
         state.pokemons.data = null;
+        state.pokemons.status = 0;
       })
       .addCase(pokemonSortWeightAsync.fulfilled, (state, action) => {
         state.pokemons.data = action.payload.data;
@@ -273,9 +295,11 @@ export const pokemonSlice = createSlice({
     builder
       .addCase(pokemonSortExperienceAsync.pending, (state) => {
         state.pokemons.data = null;
+        state.pokemons.status = 0;
       })
       .addCase(pokemonSortExperienceAsync.rejected, (state) => {
         state.pokemons.data = null;
+        state.pokemons.status = 0;
       })
       .addCase(pokemonSortExperienceAsync.fulfilled, (state, action) => {
         state.pokemons.data = action.payload.data;

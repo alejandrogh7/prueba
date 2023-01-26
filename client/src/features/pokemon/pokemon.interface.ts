@@ -40,6 +40,7 @@ interface Types {
 }
 
 export interface PokemonInterface {
+  _id: string;
   abilities: Ability[];
   base_experience: number;
   game_indices: GameIndices[];
